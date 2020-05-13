@@ -17,8 +17,11 @@ pipeline {
       }
     }
     stage('Init Git') {
-      echo "Init Git"
-      echo "DEBUG: ARGV_1 = " + ARGV_1
+      steps {
+        echo "Init Git"
+        echo "DEBUG: ARGV_1 = " + ARGV_1
+    
+      }
     }
   }
 }
