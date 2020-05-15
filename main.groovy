@@ -20,7 +20,9 @@ pipeline {
       steps {
         echo "Init Git"
         echo "DEBUG: ARGV_1 = " + ARGV_1
-    
+        withCredentials([usernamePassword(credentialsId: 'oc-cluster', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          oc login -u ${USERNAME} ${PASSWORD} https://master:8443
+        }
       }
     }
   }
